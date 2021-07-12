@@ -1,0 +1,56 @@
+[
+    {
+        "category":"hombre",
+        "id": 1,
+        "title": "Zapatillas Nike Air Force 1 Shadow",
+        "description": "Las Zapatillas Nike Air Force 1 Shadow rinde homenaje a las mujeres que están dando el ejemplo a la siguiente generación.",
+        "price": "$17999",
+        "pictureURL": "/images/image_02.jpg",
+        "stock": 8
+    },
+    {
+        "category":"mujer",
+        "id": 2,
+        "title": "Zapatillas Air Jordan 1 Low 08",
+        "description": "Con una estética del básquet de los 90 la marca entrega esta última versión presenta las Zapatillas Air Jordan Low.",
+        "price": "$18999",
+        "pictureURL": "/images/image_03.jpg",
+        "stock": 10
+    },
+    {
+        "category":"hombre",
+        "id": 3,
+        "title": "Zapatillas Nike Air Force 1 07",
+        "description": "Hechas para personas alegres que se atreven a todo y que no pasan desapercibidos en cualquier lugar, las Zapatillas Nike Air Force 1.",
+        "price": "$14999",
+        "pictureURL": "/images/image_01.jpg",
+        "stock": 5
+    },
+    {
+        "category":"mujer",
+        "id": 4,
+        "title": "Zapatillas Vans U Comfycush Old Skool",
+        "description": "Las zapatillas Vans U Comfycush Old Skool están confeccionadas en su exterior de lona y gamuza.",
+        "price": "$13700",
+        "pictureURL": "/images/image_06.jpg",
+        "stock": 2
+    },
+    {
+        "category":"hombre",
+        "id": 5,
+        "title": "Zapatillas Puma RS-X Bold",
+        "description": "Las zapatillas Puma RS-X Bold Super mantienen un diseño colorido y robusto con elementos de las zapatillas RS para lucir un estilo increíble vayas a donde vayas. Confeccionado en su exterior con una malla que combina gamuza y material sintético, además de ser un calzado cómodo gracias a la tecnología de carrera RS que ofrece amortiguación desde la parte delantera del pie hasta el talón para un andar suave y ligero.",
+        "price": "$13499",
+        "pictureURL": "/images/image_07.jpg",
+        "stock": 7
+    },
+    {
+        "category":"mujer",
+        "id": 6,
+        "title": "Zapatillas Converse Chuck Taylor Core Hi",
+        "description": "Las zapatillas Converse Chuck Taylor Core Hi tiene un diseño simplista y delicado para lucir un estilo increíble vayas a donde vayas. Confeccionado en su exterior con una malla que combina gamuza y material sintético, además de ser un calzado cómodo que ofrece durabilidad y estilo desde punta a punta de todo su diseño que para un andar suave y ligero es mas que suficiente.",
+        "price": "$7599",
+        "pictureURL": "/images/image_08.jpg",
+        "stock": 6
+    }
+]

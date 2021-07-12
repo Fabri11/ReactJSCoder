@@ -1,0 +1,13 @@
+/* Estilo basico a Items */
+
+.card {
+    border-radius: 4px;
+    margin-top: 8%;
+}
+.card-title{
+    font-size: 20px;
+}
+.card-price{
+    font-size: 20px;
+    color: #F0EDEB;
+}

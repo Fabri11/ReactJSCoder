@@ -1,0 +1,22 @@
+[
+    {
+        "id":1,
+        "picture":"./bannerCarousel/full3adidascopa.png"
+    },
+    {
+        "id":2,
+        "picture":"./bannerCarousel/hellowinterbannerok.png"
+    },
+    {
+        "id":3,
+        "picture":"./bannerCarousel/full4pumaspectra.png"
+    },
+    {
+        "id":4,
+        "picture":"./bannerCarousel/BannerPUMARiderDouble.png"
+    },
+    {
+        "id":5,
+        "picture":"./bannerCarousel/full2nikemtz.png"
+    }
+]
