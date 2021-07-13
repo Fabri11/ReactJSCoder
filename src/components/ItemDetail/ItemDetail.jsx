@@ -1,4 +1,5 @@
 import React from "react";
+import '../ItemDetail/style.css'
 import { useState } from "react";
 import { Card, Container, Row, Col} from "react-bootstrap";
 import { ItemCount } from "../ItemCount/ItemCount";
@@ -18,15 +19,15 @@ export const ItemDetail = ({ product }) => {
                 <Container className="mb-6">
                     <Row >
                         <Col className="p-0">
-                            <Card.Img style={{maxWidth: "100%"}} src={product.pictureURL} variant="top" alt="Image" />
+                            <Card.Img className="imgCard" style={{maxWidth: "100%"}} src={product.pictureURL} variant="top" alt="Image" />
                         </Col>
                         <Col>
-                            <Card.Body>
-                                <Card.Title>{product.title}</Card.Title>
+                            <Card.Body className="bodyCardSec">
+                                <Card.Title className="bodyTitle">{product.title}</Card.Title>
                                 <Card.Text>
                                     {product.description}
                                 </Card.Text>
-                                <Card.Text>{product.price}</Card.Text>
+                                <Card.Text className="bodyPrice">{product.price}</Card.Text>
                                 {productAgregado ?
                                     <div><Link to='/cart'><button>Ir al Carrito</button></Link></div>
                                         :

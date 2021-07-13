@@ -1,32 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+import '../ItemCount/style.css';
 
-export const ItemCount = ({stock, onAdd}) => {
+export const ItemCount = ({product, onAdd}) => {
 
 
-  const [valor, setValor] = useState(1);
+  const [initial, setValor] = useState(1);
+
+  const {addElement} = useContext(CartContext);
 
   const sumar= () => {
-    if (valor < stock) {
-        setValor(valor + 1)
+    if (initial < product) {
+        setValor(initial + 1)
     }
   }
 
   const restar= () => {
-    if (valor > 1) {
-        setValor(valor - 1)
-    }
+    if (initial > 1) {
+    setValor(initial-1)    }
   }
 
   return (
-    <div className="input-group mb-4">
+    <div id="containerCount" className="input-group mb-4">
       <div className="input-group-prepend">
         <button className="btn btn-outline-secondary" type="button" onClick={restar}>-</button>
       </div>
-      <input type='text' value={valor} readOnly className="form-control" />
+      <input type='text' value={initial} readOnly className="form-control" />
       <div className="input-group-append">
         <button className="btn btn-outline-secondary" type="button" onClick={sumar}>+</button>
         <div>
-          <button onClick={()=>onAdd (valor)} className="btn btn-outline-secondary rounded-4">Agregar Al Carrito</button>
+        <button id="carritoButton" onClick={()=> {addElement(product, initial)
+            onAdd(initial)}}>
+            Agregar al Carrito</button>
         </div>
       </div>
     </div>

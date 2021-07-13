@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
 import {ItemList} from '../ItemList/ItemList'
-import { Spinner } from "react-bootstrap";
 import { useParams} from 'react-router-dom';
 import { getProducts } from '../../utils/components';
 
@@ -24,10 +23,6 @@ export const ItemListContainer = () => {
   return (
     <div>
       <ItemList products={products}/>
-      <div>
-        <Spinner animation="border" variant="primary" />
-        <span className="visually-hidden"></span>
-      </div>
     </div>
   )
 }

@@ -1,0 +1,24 @@
+#CardDetail{
+    background-color: #ccc;
+    margin-top: 10%;
+    
+}
+
+.imgCard{
+    padding: 50px;
+    margin-bottom: 15%;
+}
+
+.bodyCardSec{
+    margin-top: 20%;
+}
+
+.bodyTitle{
+    font-size: 40px;
+    color: #2463E0;
+}
+
+.bodyPrice{
+    font-size: 40px;
+    color: #ccc;
+}

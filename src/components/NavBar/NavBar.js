@@ -17,12 +17,14 @@ function NavBar() {
             <Nav.Link as= {Link} exact={true} activeClassName="active" to="/category/hombre">Hombres</Nav.Link>
             <Nav.Link as= {Link} exact={true} activeClassName="active" to="/category/mujer">Mujeres</Nav.Link>
             <NavDropdown title="Marcas" id="collasible-nav-dropdown">
-              <NavDropdown.Item>Nike</NavDropdown.Item>
-              <NavDropdown.Item>Adidas</NavDropdown.Item>
-              <NavDropdown.Item>Jordan</NavDropdown.Item>
-              <NavDropdown.Item>Puma</NavDropdown.Item>
-              <NavDropdown.Item>Vans</NavDropdown.Item>
-              <NavDropdown.Item>JohnFoos</NavDropdown.Item>
+              <Link>
+                <NavDropdown.Item as= {Link} exact={true} activeClassName="active" to="/marcas/nike">Nike</NavDropdown.Item>
+                <NavDropdown.Item as= {Link} exact={true} activeClassName="active" to="/marcas/adidas">Adidas</NavDropdown.Item>
+                <NavDropdown.Item as= {Link} exact={true} activeClassName="active" to="/marcas/jordan">Jordan</NavDropdown.Item>
+                <NavDropdown.Item as= {Link} exact={true} activeClassName="active" to="/marcas/puma">Puma</NavDropdown.Item>
+                <NavDropdown.Item as= {Link} exact={true} activeClassName="active" to="/marcas/vans">Vans</NavDropdown.Item>
+                <NavDropdown.Item as= {Link} exact={true} activeClassName="active" to="/marcas/nike">Converse</NavDropdown.Item>
+              </Link>
             </NavDropdown>
           </Nav>
           <Nav>

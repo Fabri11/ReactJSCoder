@@ -3,28 +3,31 @@
         "category":"hombre",
         "id": 1,
         "title": "Zapatillas Nike Air Force 1 Shadow",
-        "description": "Las Zapatillas Nike Air Force 1 Shadow rinde homenaje a las mujeres que están dando el ejemplo a la siguiente generación.",
+        "description": "Las Zapatillas Nike Air Force 1 Shadow rinde homenaje a las mujeres que están dando el ejemplo a la siguiente generación, al ser una combinación de fuerza, coraje, estilo y responsabilidad. Confeccionadas en cuero y gamuza, tienen una suela de goma con tecnología Air Max, aportando amortiguación, estabilidad y confianza.",
         "price": "$17999",
         "pictureURL": "/images/image_02.jpg",
-        "stock": 8
+        "stock": 8,
+        "marcas": "nike"
     },
     {
         "category":"mujer",
         "id": 2,
         "title": "Zapatillas Air Jordan 1 Low 08",
-        "description": "Con una estética del básquet de los 90 la marca entrega esta última versión presenta las Zapatillas Air Jordan Low.",
+        "description": "Con una estética del básquet de los 90 la marca entrega esta última versión presenta las Zapatillas Air Jordan Low construidas con una mezcla en cuero y textil que te dará mayor durabilidad y resistencia en el tiempo. Con perforaciones frontales que las hace transpirables y frescas en todo momento, la suela de goma tiene un patrón grabado en el exterior y la unidad Air sole que te dará mejor tracción y amortiguación durante todo el juego. Además, el colorway de White Deep Royal Blue te hará lucir un look urbano y relajado a donde vayas.",
         "price": "$18999",
         "pictureURL": "/images/image_03.jpg",
-        "stock": 10
+        "stock": 10,
+        "marcas":"jordan"
     },
     {
         "category":"hombre",
         "id": 3,
         "title": "Zapatillas Nike Air Force 1 07",
-        "description": "Hechas para personas alegres que se atreven a todo y que no pasan desapercibidos en cualquier lugar, las Zapatillas Nike Air Force 1.",
+        "description": "Diseñadas para vos que te arriesgás a todo y que no pasas desapercibida, ideales para que vivas todas las aventuras posibles con las Zapatillas Nike Air Force 1 07 con capas de cuero sintético, te ofrece un look urbano y moderno lleno de texturas y ritmo. Su entresuela ancha y suela ranurada te ofrece ligereza y amortiguación en cualquier superficie para que vayas segura dando pasos estables y con un estilo único característico de la marca.",
         "price": "$14999",
         "pictureURL": "/images/image_01.jpg",
-        "stock": 5
+        "stock": 5,
+        "marcas":"nike"
     },
     {
         "category":"mujer",
@@ -33,7 +36,8 @@
         "description": "Las zapatillas Vans U Comfycush Old Skool están confeccionadas en su exterior de lona y gamuza.",
         "price": "$13700",
         "pictureURL": "/images/image_06.jpg",
-        "stock": 2
+        "stock": 2,
+        "marcas":"vans"
     },
     {
         "category":"hombre",
@@ -42,7 +46,8 @@
         "description": "Las zapatillas Puma RS-X Bold Super mantienen un diseño colorido y robusto con elementos de las zapatillas RS para lucir un estilo increíble vayas a donde vayas. Confeccionado en su exterior con una malla que combina gamuza y material sintético, además de ser un calzado cómodo gracias a la tecnología de carrera RS que ofrece amortiguación desde la parte delantera del pie hasta el talón para un andar suave y ligero.",
         "price": "$13499",
         "pictureURL": "/images/image_07.jpg",
-        "stock": 7
+        "stock": 7,
+        "marcas":"puma"
     },
     {
         "category":"mujer",
@@ -51,6 +56,7 @@
         "description": "Las zapatillas Converse Chuck Taylor Core Hi tiene un diseño simplista y delicado para lucir un estilo increíble vayas a donde vayas. Confeccionado en su exterior con una malla que combina gamuza y material sintético, además de ser un calzado cómodo que ofrece durabilidad y estilo desde punta a punta de todo su diseño que para un andar suave y ligero es mas que suficiente.",
         "price": "$7599",
         "pictureURL": "/images/image_08.jpg",
-        "stock": 6
+        "stock": 6,
+        "marcas":"converse"
     }
 ]

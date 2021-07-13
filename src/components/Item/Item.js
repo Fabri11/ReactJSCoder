@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 // html donde se visualiza el resultado
 
 export const Item = ({product}) => {
-    function agregarAlCarrito(){
-
-    }
     return(
         <>
             <div style={{margin:"55px"}} className="card text-center bg-dark mb-4 col-3">
