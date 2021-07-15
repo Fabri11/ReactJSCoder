@@ -1,8 +1,7 @@
 import { createContext, useState } from "react";
 
 export const CartContext = createContext()
-
-export const CartComponent = ({children}) => {
+export const CartContextElement = ({children}) => {
 
     const [cart, setCart] = useState([])
 
@@ -13,7 +12,7 @@ export const CartComponent = ({children}) => {
         if(index === -1) setCart([...cart, {...product, cant}])
 
         else {setCart(() => {
-            cart [index].cant = cant
+            cart[index].cant = cant
 
             return [...cart]
         })}
@@ -30,9 +29,18 @@ export const CartComponent = ({children}) => {
         setCart(filterCart);
     }
 
+    function total(){
+        const valor = cart.reduce((reunir, item)=>{
+            return(reunir += (item.price * item.cant)
+
+            )
+        },0);
+        return valor;
+    }
+
 
     return (
-        <CartContext.Provider value ={{cart, addProduct}}>
+        <CartContext.Provider value ={{cart, addProduct, clear, deleteProduct, total}}>
             {children}
         </CartContext.Provider>
     )

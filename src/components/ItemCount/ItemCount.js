@@ -4,21 +4,19 @@ import '../ItemCount/style.css';
 
 export const ItemCount = ({product, onAdd}) => {
 
-
   const [initial, setValor] = useState(1);
 
   const {addElement} = useContext(CartContext);
 
-  const sumar= () => {
-    if (initial < product) {
-        setValor(initial + 1)
+  const sumar=() => {
+    if(initial<product.stock){
+        setValor(initial+1)
     }
-  }
-
-  const restar= () => {
-    if (initial > 1) {
-    setValor(initial-1)    }
-  }
+}
+const restar=() =>{
+    if(initial>1)
+    setValor(initial-1)
+}
 
   return (
     <div id="containerCount" className="input-group mb-4">
@@ -29,11 +27,10 @@ export const ItemCount = ({product, onAdd}) => {
       <div className="input-group-append">
         <button className="btn btn-outline-secondary" type="button" onClick={sumar}>+</button>
         <div>
-        <button id="carritoButton" onClick={()=> {addElement(product, initial)
-            onAdd(initial)}}>
-            Agregar al Carrito</button>
+          <button className="btn btn-outline-primary" id="carritoButton" onClick={()=> {addElement(product, initial); onAdd(initial)}}>Agregar al Carrito
+          </button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

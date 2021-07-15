@@ -12,9 +12,6 @@ export const Item = ({product}) => {
                     <div className="card-body text-light">
                         <h4 className="card-title">{product.title}</h4>
                         <h3 className="card-price">{product.price}</h3>
-                        <div className="item-count btn btn-outline primary rounded 0">
-                            {/* <ItemCount onClick={agregarAlCarrito} initial={1} stock={product.stock} onAdd={onAdd} onSubstract={onSubstract}></ItemCount> */}
-                        </div>
                         <Link style={{textAlign:"center"}} to={`/item/${product.id}`}>Ver Más</Link>
                     </div>
             </div>

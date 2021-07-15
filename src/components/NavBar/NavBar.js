@@ -28,9 +28,9 @@ function NavBar() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link eventKey={2}>
-              <CartWidget />
-            </Nav.Link>
+            <Link eventKey={2} to="/cart">
+              <CartWidget/>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

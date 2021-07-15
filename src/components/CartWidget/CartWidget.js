@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from "react-router-dom";
 import { CartContext } from '../../context/CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-export const CartWidget = (cantidad) => {
+export const CartWidget = () => {
 
   const {cart} = useContext(CartContext);
+  let CantCart = cart.reduce((reunir, Item)=>{
+    return (reunir +=(Item.cant))
+  },0)
 
   return (
     <>
@@ -14,26 +16,8 @@ export const CartWidget = (cantidad) => {
         <div className='CardWidget' style={{ fontSize: '20px', color: '#ccc' }}>
           <FontAwesomeIcon icon={faShoppingCart} />
         </div>
+        <div className={cart.lenght? "modal-body" : "d-none"}>{CantCart}</div>
       </button>
-      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div className="modal-body">
-              {cart.lenght}
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <Link to="/cart">
-                <button type="button" className="btn btn-primary">Comprar</button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 }

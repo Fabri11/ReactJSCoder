@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import {ItemDetail} from '../../components/ItemDetail/ItemDetail'
-import { Spinner } from "react-bootstrap";
 import { useParams } from 'react-router-dom';
 import { getProducts } from '../../utils/components';
 
@@ -26,7 +25,7 @@ export const ItemDetailContainer = () => {
     <>
       {products && <ItemDetail product={products}/>}
       <div>
-        <Spinner animation="border" variant="primary" />
+        {/* <Spinner animation="border" variant="primary" /> */}
       </div>
     </>
   )

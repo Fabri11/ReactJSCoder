@@ -31,7 +31,7 @@ export const ItemDetail = ({ product }) => {
                                 {productAgregado ?
                                     <div><Link to='/cart'><button>Ir al Carrito</button></Link></div>
                                         :
-                                    <ItemCount onAdd={onAdd} stock={product.stock}/>}
+                                    <ItemCount onAdd={onAdd} product={product.stock}/>}
                             </Card.Body>
                         </Col>
                     </Row>
