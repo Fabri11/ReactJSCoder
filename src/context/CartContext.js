@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { db } from "../firebase/client";
 
 export const CartContext = createContext()
+
 export const CartContextElement = ({children}) => {
 
     const [cart, setCart] = useState([])

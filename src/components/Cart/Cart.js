@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
+import CheckoutForm from '../FormCheckout/Checkout';
 
 
 export const CartComponent = () => {
@@ -17,12 +18,13 @@ export const CartComponent = () => {
                             <Card.ImgOverlay>
                                 <Card.Title>{product.title}</Card.Title>
                                 <Card.Text>{product.stock}</Card.Text>
-                                <Card.Text>Last updated 3 mins ago</Card.Text>
+                                <Card.Text>{product.description}</Card.Text>
                                 <button onClick={()=>deleteProduct(product.id)}>Eliminar</button>
                             </Card.ImgOverlay>
                         </Card>
                     )
                 })}
+                <CheckoutForm/>
                 <div>{total()}</div>
                     <Button onClick={clear} variant="danger">Vaciar</Button>
                 </div>
