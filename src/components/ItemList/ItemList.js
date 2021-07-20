@@ -6,7 +6,7 @@ export const ItemList = ({products}) =>{
     <div className="container d-flex justify-content-center align-item-center">
       <div className="row">
         {products.map((element)=>
-          <Item key={element.id} product={element}/>
+          <Item key={element.data().id} product={element.data()}/>
         )}
       </div>
     </div>

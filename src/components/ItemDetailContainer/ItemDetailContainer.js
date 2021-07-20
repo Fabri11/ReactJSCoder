@@ -1,32 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import {ItemDetail} from '../../components/ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom';
-import { getProducts } from '../../utils/components';
+import { CartContext } from '../../context/CartContext';
 
 export const ItemDetailContainer = () => {
 
+  const {productos} = useContext(CartContext)
   const {id} = useParams();
   const [products, setProduct] = useState(null)
 
   useEffect(() => {
-    const getItem = async () => {
-      let data = await getProducts();
-      const item = data.find((item)=>item.id === parseInt (id))
-      console.log(data)
-
-      setProduct(item);
+    if (productos){
+      const itemFound = productos.docs.find(producto => producto.data().id===id)
+      setProduct(itemFound);
     }
-      setTimeout(() => {
-        getItem();
-      }, 500)
-  }, [id])
+    },[id, productos])
 
   return (
     <>
-      {products && <ItemDetail product={products}/>}
-      <div>
-        {/* <Spinner animation="border" variant="primary" /> */}
-      </div>
+      {products && <ItemDetail product={products.data()}/>}
     </>
   )
 }
