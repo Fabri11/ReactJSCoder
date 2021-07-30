@@ -9,7 +9,7 @@ import { CartComponent } from './components/Cart/Cart';
 import {CarouselBan} from './components/Carousel/Carousel'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-import {getFirestore} from 'firebase'
+import { getFirestore } from './firebase-config/client';
 
 
 
@@ -17,8 +17,8 @@ function App() {
 
   useEffect(()=>{
     async function getData(){
-      const DB = getFirestore(); //conexion base de datos
-      const Collection = DB.collection("productos") //tomamos la coleccion
+      const db = getFirestore(); //conexion base de datos
+      const Collection = db.collection("productos") //tomamos la coleccion
 
       const response = await Collection.get()
         console.log(response.docs.map(element=> element.data()));

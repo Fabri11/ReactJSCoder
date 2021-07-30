@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import firebase from "firebase";
-import { db } from "../../firebase/client";
+import { getFirestore } from "../../firebase-config/client";
 import { CartContext } from "../../context/CartContext";
 import Alert from 'react-bootstrap/Alert';
 import Form from 'react-bootstrap/Form'
@@ -10,11 +10,11 @@ const CheckoutForm = () =>{
     const {cart, total, clear }= useContext(CartContext);
 
     async function updateItem(){
-        const itemToUpdate = db.collection("productos")
+        const itemToUpdate = getFirestore.collection("productos")
         .where("id", cart.map(i => i.id));
 
         const query = await itemToUpdate.get();
-        const batch = db.batch();
+        const batch = getFirestore.batch();
         const unavaible = [];
 
         cart.forEach(producto => {
@@ -40,7 +40,7 @@ const CheckoutForm = () =>{
             cliente, items : cart, total: total(), date: firebase.firestore.FieldValue.serverTimestamp()
         }
 
-        const reply = await db.collection('productos').add(sneakers);
+        const reply = await getFirestore.collection('productos').add(sneakers);
         return reply;
     }
 

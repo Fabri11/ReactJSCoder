@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { db } from "../firebase/client";
+import { getFirestore } from "../firebase-config/client";
 
 export const CartContext = createContext()
 
@@ -10,7 +10,7 @@ export const CartContextElement = ({children}) => {
 
     useEffect(()=>{
         async function fetch(){
-            const docs = await db.collection("productos").get();
+            const docs = await getFirestore.collection("productos").get();
             setproductos(docs);
         }
         fetch();
