@@ -11,8 +11,8 @@ export const Item = ({product}) => {
                     <img className="mb-2" style={{margin: "10px"}} src={product.pictureURL} alt=""></img>
                     <div className="card-body text-light">
                         <h4 className="card-title">{product.title}</h4>
-                        <h3 className="card-price">{product.price}</h3>
-                        <Link style={{textAlign:"center"}} to={`/item/${product.id}`}>Ver Más</Link>
+                        <h3 className="card-price">${product.price}</h3>
+                        <Link style={{textAlign:"center" ,textDecoration:'none'}} to={`/item/${product.id}`}>Ver Más</Link>
                     </div>
             </div>
         </>

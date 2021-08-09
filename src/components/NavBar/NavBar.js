@@ -2,33 +2,31 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { CartWidget } from "../CartWidget/CartWidget";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Link to="/">
-          <Navbar.Brand as= {Link} exact={true} activeClassName="active" to="/">where are my sneakers?</Navbar.Brand>
-        </Link>
+          <Navbar.Brand as= {NavLink} exact={true} activeClassName="active" to="/">
+            <img src="../aasets/icons/icono.png" style={{ maxWidth: 160 }} className='mx-2' alt={'WMySneakers'} name={'WMySneakers'}></img>
+          </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as= {Link} exact={true} activeClassName="active" to="/category/hombre">Hombres</Nav.Link>
-            <Nav.Link as= {Link} exact={true} activeClassName="active" to="/category/mujer">Mujeres</Nav.Link>
-            <NavDropdown title="Marcas" id="collasible-nav-dropdown">
-              <Link>
-                <NavDropdown.Item as= {Link} exact={true} activeClassName="active" to="/marcas/nike">Nike</NavDropdown.Item>
-                <NavDropdown.Item as= {Link} exact={true} activeClassName="active" to="/marcas/adidas">Adidas</NavDropdown.Item>
-                <NavDropdown.Item as= {Link} exact={true} activeClassName="active" to="/marcas/jordan">Jordan</NavDropdown.Item>
-                <NavDropdown.Item as= {Link} exact={true} activeClassName="active" to="/marcas/puma">Puma</NavDropdown.Item>
-                <NavDropdown.Item as= {Link} exact={true} activeClassName="active" to="/marcas/vans">Vans</NavDropdown.Item>
-                <NavDropdown.Item as= {Link} exact={true} activeClassName="active" to="/marcas/nike">Converse</NavDropdown.Item>
-              </Link>
+            <Nav.Link as= {NavLink} exact={true} activeClassName="active" to="/category/hombre">Hombres</Nav.Link>
+            <Nav.Link as= {NavLink} exact={true} activeClassName="active" to="/category/mujer">Mujeres</Nav.Link>
+            <NavDropdown title="Marcas" id="collapsible-nav-dropdown">
+                <NavDropdown.Item as={NavLink} exact={true} activeClassName="active" to="/category/marca">Nike</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} exact={true} activeClassName="active" to="/marca/adidas">Adidas</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} exact={true} activeClassName="active" to="/marca/jordan">Jordan</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} exact={true} activeClassName="active" to="/marca/puma">Puma</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} exact={true} activeClassName="active" to="/marca/vans">Vans</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} exact={true} activeClassName="active" to="/category/converse">Converse</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
-            <Link eventKey={2} to="/cart">
+            <Link to="/cart">
               <CartWidget/>
             </Link>
           </Nav>

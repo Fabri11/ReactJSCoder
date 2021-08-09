@@ -7,7 +7,7 @@
         "price": "$17999",
         "pictureURL": "/images/image_02.jpg",
         "stock": 8,
-        "marcas": "nike"
+        "marca": "nike"
     },
     {
         "category":"mujer",
@@ -17,7 +17,7 @@
         "price": "$18999",
         "pictureURL": "/images/image_03.jpg",
         "stock": 10,
-        "marcas":"jordan"
+        "marca":"jordan"
     },
     {
         "category":"hombre",
@@ -27,7 +27,7 @@
         "price": "$14999",
         "pictureURL": "/images/image_01.jpg",
         "stock": 5,
-        "marcas":"nike"
+        "marca":"nike"
     },
     {
         "category":"mujer",
@@ -37,7 +37,7 @@
         "price": "$13700",
         "pictureURL": "/images/image_06.jpg",
         "stock": 2,
-        "marcas":"vans"
+        "marca":"vans"
     },
     {
         "category":"hombre",
@@ -47,7 +47,7 @@
         "price": "$13499",
         "pictureURL": "/images/image_07.jpg",
         "stock": 7,
-        "marcas":"puma"
+        "marca":"puma"
     },
     {
         "category":"mujer",
@@ -57,6 +57,6 @@
         "price": "$7599",
         "pictureURL": "/images/image_08.jpg",
         "stock": 6,
-        "marcas":"converse"
+        "marca":"converse"
     }
 ]

@@ -3,6 +3,7 @@
 .card {
     border-radius: 4px;
     margin-top: 8%;
+    background-color: #ccc;
 }
 .card-title{
     font-size: 20px;

@@ -1,0 +1,14 @@
+#containerSocial{
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.socialMedia{
+    margin: 5px;
+}
+
+.infoAdicional{
+    margin-bottom: 5px;
+}
+

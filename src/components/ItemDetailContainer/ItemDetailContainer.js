@@ -1,24 +1,27 @@
 import React, { useState, useEffect, useContext } from 'react'
-import {ItemDetail} from '../../components/ItemDetail/ItemDetail'
-import { useParams } from 'react-router-dom';
+import { ItemDetail } from '../../components/ItemDetail/ItemDetail'
+import { Link, useParams } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
+import Alert from 'react-bootstrap/Alert'
 
 export const ItemDetailContainer = () => {
 
-  const {productos} = useContext(CartContext)
-  const {id} = useParams();
-  const [products, setProduct] = useState(null)
+  const { products } = useContext(CartContext)
+  const { id } = useParams();
+  const [product, setProduct] = useState(null)
 
   useEffect(() => {
-    if (productos){
-      const itemFound = productos.docs.find(producto => producto.data().id===id)
+    
+      const itemFound = products?.find(product => product.id === id)
       setProduct(itemFound);
-    }
-    },[id, productos])
+    
+  }, [id, products])
 
   return (
     <>
-      {products && <ItemDetail product={products.data()}/>}
+      {
+        product && <ItemDetail product={product} /> 
+      }
     </>
   )
 }

@@ -1,103 +1,105 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import firebase from "firebase";
-import { getFirestore } from "../../firebase-config/client";
+import { db } from "../../firebase/client";
 import { CartContext } from "../../context/CartContext";
 import Alert from 'react-bootstrap/Alert';
+import { Button } from "react-bootstrap";
+import { render } from "ejs";
 import Form from 'react-bootstrap/Form'
-import { Col, Row } from "react-bootstrap";
 
-const CheckoutForm = () =>{
-    const {cart, total, clear }= useContext(CartContext);
+const CheckoutForm = (e) =>{
+  const {cart, subTotal, clear} = useContext(CartContext);
 
-    async function updateItem(){
-        const itemToUpdate = getFirestore.collection("productos")
-        .where("id", cart.map(i => i.id));
+  async function itemUpdate() { 
+      const itemsToUpdate = db.collection("productos")
+      .where("id", "in", cart.map(i => i.id));
 
-        const query = await itemToUpdate.get();
-        const batch = getFirestore.batch();
-        const unavaible = [];
+      const query = await itemsToUpdate.get();
+      const batch = db.batch();
+      const outOfStock = [];
 
-        cart.forEach(producto => {
-            const item = query.docs.find(item => producto.id === item.data().id);
-            if(item.data().stock >= producto.cant) {
-                batch.update(item.ref, {stock: item.data().stock-producto.cant});
-            } else{
-                unavaible.push(producto)
-            };
-        });
+      cart.forEach(producto => {
+          const item = query.docs.find(item => producto.id === item.data().id);
+          if (item.data().stock >= producto.cantidad) {
+              batch.update(item.ref, {stock: item.data().stock - producto.cantidad});
+          } else{
+              outOfStock.push(producto)};
+      })
 
+          if (outOfStock.length === 0){
+          await batch.commit();
+          return {status: 'ok'}
+      } else {
+          return {status: 'sin stock', outOfStock}
+      }
+  }
 
-        if (unavaible.length === 0){
-            await batch.commit();
-            return {status: 'Listo'}
-        } else {
-            return {status: 'Lo Siento, no hay Stock', unavaible}
-        }
-    }
+  const finalizarCompra = async (comprador) => {
+      const orden = {
+          comprador,
+          items: cart,
+          total: subTotal(),
+          fecha: firebase.firestore.FieldValue.serverTimestamp()
+      }
 
-    const finalizePurchase = async (cliente) =>{
-        const sneakers = {
-            cliente, items : cart, total: total(), date: firebase.firestore.FieldValue.serverTimestamp()
-        }
+      const respuesta = await db.collection('orders').add(orden);
+      return respuesta
+  }
 
-        const reply = await getFirestore.collection('productos').add(sneakers);
-        return reply;
-    }
+  const obtenerComprador = async (e) => {
+      e.preventDefault();
 
-    const formCliente = async (e) =>{
-        e.preventDeafult();
+      const formulario = e.target;
 
-        const form = e.target;
+      const comprador = {
+          nombre: formulario['nombre'].value,
+          telefono: formulario['telefono'].value,
+          email: formulario['email'].value,
+      }
+      const respuesta = await itemUpdate();
+      if (respuesta.status === "ok"){
+          await finalizarCompra(comprador);
 
-    const clientData = {
-        nombre: form['nombre'].value,
-        apellido: form['apellido'].value,
-        telefono:['telefono'].value,
-        email:['email'].value,
-    }
-    const respuesta = await updateItem();
-    if(respuesta.status === "Listo"){
-        await finalizePurchase(clientData);
+      formulario.reset();
+      clear();
+      }
+      else{
+          alert(respuesta.status);
+      }
+  }
 
-    form.reset();
-    clear();
-    }else{
-        [
-            'primary',
-            'secondary',
-            'success',
-            'danger',
-            'warning',
-            'info',
-            'light',
-            'dark',
-          ].map((variant, idx) => (
-            <Alert key={idx} variant={variant}>
-              This is a {variant} alert—check it out!
-            </Alert>
-          ))
-    }
-}
+    return(
+      <Form className='card card-body border border-secondary bg-dark' onSubmit={(e)=>obtenerComprador}>
+          <div className='form-group input-group'>
+              <input
+              type='text'
+              className='form-control'
+              placeholder='Nombre'
+              name='nombre'
+              />
+          </div>
+          <div className='form-group input-group'>
+              <input
+              type='text'
+              className='form-control'
+              placeholder='Email'
+              name='email'
+              />
     
-
-    return (
-        <Form onSubmit={(e)=> formCliente(e)}>
-            <Row>
-                <Col>
-                    <Form.Control placeholder="Nombre" />
-                </Col>
-                <Col>
-                    <Form.Control placeholder="Apellido" />
-                </Col>
-                <Col>
-                    <Form.Control placeholder="email@email.com" />
-                </Col>
-                <Col>
-                    <Form.Control placeholder="Teléfono. ej:111-123345" />
-                </Col>
-            </Row>
-        </Form>
-    )
-}
+          </div>
+          <div className='form-group input-group'>
+              <input
+              type='text'
+              className='form-control'
+              placeholder='Teléfono. Ej:111-233'
+              name='telefono'
+              />
+          </div>
+          <div>
+              <button id='btnConfirmOrder' type='submit' onClick={finalizarCompra} className='btn btn-primary'>Confirmar</button>
+          </div>
+      </Form>
+    );
+};
 
 export default CheckoutForm;
